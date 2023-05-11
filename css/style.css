@@ -3,4 +3,10 @@
 .center {display: flex;justify-content: center;text-align: center;height: 100%;align-items: center;flex-direction: column;}
 .logo {margin-top: 0;width: 230px;float: left;padding: 0;cursor: pointer;}
 .container h1 > a,.container h1 {margin-top: 0;font-size: 70px;font-weight: 600;color: #fff;text-align: center;position: relative;text-decoration: none;}
-.container p {font-size: 20px;text-align: center;color: #fff;margin-top: 30px;}
+.container p {font-size: 20px;text-align: center;color: #fff;margin-top: 15px;}
+.input-box{display: flex;position: relative;height: 40px;width: 100%;margin-top: 30px;column-gap: 20px;justify-content: center;}
+.input-box input,.input-box .btn-primary{height: 100%;outline: none;border: none;border: 1px solid #fff;border-radius: 4px;background:transparent;margin-top: 5px}
+.input-box input{width: 100%;padding: 0 15px;color: #fff;font-weight: 400}
+input::placeholder{color: #fff}
+.input-box .btn-primary{text-decoration: none; cursor: pointer;color: #fff;white-space: nowrap;padding: 0 20px;transition: all 0.3s ease; display: flex; align-items: center;}
+.input-box .btn-primary:hover{background-color: #fff;color: #ff0080}
