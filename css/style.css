@@ -1,0 +1,6 @@
+* {margin: 0;padding: 0;font-family: 'poppins', sans-serif;box-sizing: border-box;}
+.container {width: 100vw;height: 100vh;background-image: linear-gradient(to right top, #ff00b2, #f400bf, #e600cd, #d400db, #bd00ea, #a920f2, #9130f9, #743bff, #5f4dff, #475bff, #2d66ff, #006fff);background-position: center;background-size: cover;}
+.center {display: flex;justify-content: center;text-align: center;height: 100%;align-items: center;flex-direction: column;}
+.logo {margin-top: 0;width: 230px;float: left;padding: 0;cursor: pointer;}
+.container h1 > a,.container h1 {margin-top: 0;font-size: 70px;font-weight: 600;color: #fff;text-align: center;position: relative;text-decoration: none;}
+.container p {font-size: 20px;text-align: center;color: #fff;margin-top: 30px;}
