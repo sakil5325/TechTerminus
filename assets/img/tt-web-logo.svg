@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" class="cls-logo" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128.65 20.91">
+  <defs>
+    <style>
+	.cls-logo { width: auto; height: auto; }
+      .cls-1, .cls-2, .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-1, .cls-3 {
+        font-family: Montserrat-ExtraBold, Montserrat;
+        font-size: 13.11px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-4 {
+        fill: #2c3e50;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5, .cls-6, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-7 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-6, .cls-3 {
+        fill: #3b97d3;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-29.25" y1="61.28" x2="-29.25" y2="61.28" gradientTransform="translate(2983.66 2566.72) scale(101.55 -41.85)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3b97d3"/>
+      <stop offset="1" stop-color="#194c6e"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="Group_1" data-name="Group 1">
+      <path id="Path_2" data-name="Path 2" class="cls-4" d="m18.33,18.05v-9.48l-4.74,2.85c0-1.18-.01-2.24.01-3.31,0-.12.18-.28.31-.36,3.22-1.95,6.45-3.9,9.66-5.85.27-.16.45-.13.68.04.45.34.92.65,1.38.97.51.35.5.87-.03,1.2-1.29.8-2.58,1.6-3.88,2.37-.29.14-.47.44-.43.76.01,2.87,0,5.73.02,8.6,0,.37-.1.59-.44.77-.82.44-1.63.91-2.55,1.43Z"/>
+      <path id="Path_3" data-name="Path 3" class="cls-6" d="m7.68,18.04v-9.48l4.74,2.85c0-1.18.01-2.24-.01-3.31,0-.12-.18-.28-.31-.36-3.22-1.95-6.45-3.9-9.66-5.85-.27-.16-.45-.13-.68.04-.45.34-.92.65-1.38.97-.51.35-.5.87.03,1.2,1.29.8,2.58,1.6,3.88,2.37.29.14.47.44.43.76-.01,2.87,0,5.73-.02,8.6,0,.37.1.59.44.77.82.44,1.63.91,2.55,1.43Z"/>
+      <path id="Path_4" data-name="Path 4" class="cls-5" d="m6.82,3.39c1.03-.59,1.97-1.13,2.92-1.66.98-.55,1.95-1.11,2.94-1.64.15-.08.41-.12.55-.05,1.94,1.07,3.86,2.16,5.79,3.25.04.02.07.07.14.15-.92.55-1.81,1.1-2.73,1.62-.11.06-.33-.01-.46-.09-.87-.47-1.73-.95-2.58-1.45-.29-.17-.51-.16-.79,0-.83.5-1.68.96-2.54,1.43-.13.07-.36.14-.46.08-.91-.52-1.8-1.07-2.78-1.65Z"/>
+    </g>
+    <g id="TechTerminus" class="cls-2">
+      <text class="cls-3" transform="translate(31.93 14.77)"><tspan class="cls-7" x="0" y="0">T</tspan><tspan x="7.42" y="0">ech</tspan></text>
+      <text class="cls-1" transform="translate(64.96 14.77)"><tspan class="cls-7" x="0" y="0">T</tspan><tspan x="7.42" y="0">erminus</tspan></text>
+    </g>
+  </g>
+</svg>
