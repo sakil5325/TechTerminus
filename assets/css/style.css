@@ -96,8 +96,8 @@ section > .container.center {
 }
 
 #header .logo img {
-  max-height: 40px;
-  width: 260px;
+  /* max-height: 40px; */
+  width: 210px;
 }
 
 /*--------------------------------------------------------------
