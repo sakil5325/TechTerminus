@@ -359,7 +359,6 @@ section > .container.center {
 #hero {
   width: 100%;
   height: calc(100vh - 70px);
-  background: url("../img/hero-bg.jpg") center center;
   background-size: cover;
   position: relative;
   margin-top: 70px;
@@ -368,7 +367,7 @@ section > .container.center {
 
 #hero:before {
   content: "";
-  background: rgba(56, 64, 70, 0.7);
+  background: #2C3E50;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1433,4 +1432,12 @@ section {
   background: #5faee3;
   color: #fff;
   text-decoration: none;
+}
+
+#particles-js {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
