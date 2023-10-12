@@ -1282,6 +1282,117 @@ section {
 }
 
 /*--------------------------------------------------------------
+# elementor-section
+--------------------------------------------------------------*/
+
+.elementor-section {
+  background-color: #396085;
+  background-image: url('/assets/img/contact-us.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+.gradient-overlay {
+  
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .6;
+    background: linear-gradient(to right, black 0%, black 20%, transparent 100%);
+}
+
+.contact-section {
+  min-height: calc(100vh - 400px);
+  position: relative;
+}
+.contact-section h2 {
+  margin-bottom: 20px;
+}
+.elementor-container {
+  position: relative;
+}
+
+.content {
+  text-align: center;
+  color: #fff;
+  width: 50%;
+  margin: 0 auto;
+}
+@media (max-width: 991px) {
+  .content {
+    width: 71%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 658px) {
+  .content {
+    width: 96%;
+    margin: 0 auto;
+  }
+}
+.content h2{
+  font-size: 38px;
+  line-height: 1;
+}
+.limited-lines {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content p{
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.button-talk {
+  margin-top: 40px; 
+  text-align: center;
+}
+
+.lets-button {
+  font-family: "Montserrat", sans-serif;
+  background: #3B97D3 ;
+  color: #fff;
+  display: inline-block;
+  padding: 12px 28px;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.lets-button:hover {
+  background: #4ea5e0;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
