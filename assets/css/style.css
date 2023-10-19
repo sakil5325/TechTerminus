@@ -96,9 +96,22 @@ section > .container.center {
 }
 
 #header .logo img {
-  /* max-height: 40px; */
   width: 210px;
 }
+
+
+@media (max-width: 768px) {
+  #header .logo img {
+    width: 172px;
+  }
+}
+@media (max-width: 767px) { 
+  #header {
+    height: 68px; 
+   
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Header Social Links
@@ -425,7 +438,9 @@ section > .container.center {
 
 @media (max-width: 992px) {
   #hero {
-    height: calc(100vh - 70px);
+    min-height: 450px;
+    height: 450px;
+    text-align: center;
   }
 }
 
@@ -460,18 +475,29 @@ section {
   padding-bottom: 30px;
 }
 .intro-text {
-  font-size: 22px;
+  font-size: 20px;
   font-weight:500px;
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 44px;
   font-weight: 600;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
 }
+/* @media (max-width: 1024px) and (min-width: 769px) {
+  .home-text h1 {
+    font-size: 72px; 
+  }
+} */
 
+
+@media (max-width: 768px) {
+  .section-title h2{
+    font-size: 35px;
+  }
+}
 .section-title h2::before {
   content: "";
   position: absolute;
@@ -504,6 +530,13 @@ section {
 .what-we-do .row > * {
   padding-bottom: 20px;
 }
+
+
+
+
+
+
+
 .what-we-do .icon-box {
   text-align: center;
   padding: 30px 20px;
@@ -542,7 +575,7 @@ section {
 
 .what-we-do .icon-box p {
   line-height: 28px;
-  font-size: 16px;
+  font-size: 17px;
   margin-bottom: 0;
 }
 
@@ -563,7 +596,7 @@ section {
   padding: 10px 0;
 }
 
-.about h3 {
+.about h3 { 
   font-weight: 600;
   font-size: 32px;
 }
@@ -711,13 +744,32 @@ section {
   color: #3B97D3;
   font-size: 40px;
   line-height: 0;
+  margin-bottom: 13px;
 }
-
+@media (max-width: 767px) {
+  .services .icon-box {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+    margin-bottom: 10px;
+  }
+}
 .services .icon-box h4 {
   margin-left: 70px;
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
+}
+@media (max-width: 767px) {
+  .services .icon-box h4 {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+    margin-right: 74px;
+    margin: 4 auto;
+  }
 }
 
 .services .icon-box h4 a {
@@ -729,8 +781,19 @@ section {
   margin-left: 70px;
   line-height: 28px;
   font-size: 16px;
+  margin-top: 8px;
 }
-
+@media (max-width: 767px) {
+  .services .icon-box p {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+    margin-right: -16px;
+    margin-left: -15px;
+    margin: 2;
+  }
+}
 .services .icon-box:hover {
   box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.08);
 }
@@ -738,6 +801,7 @@ section {
 .services .icon-box:hover h4 a {
   color: #3B97D3;
 }
+
 
 /*--------------------------------------------------------------
 # Portfolio
@@ -1330,6 +1394,7 @@ section {
   width: 50%;
   margin: 0 auto;
 }
+
 @media (max-width: 991px) {
   .content {
     width: 71%;
@@ -1346,6 +1411,12 @@ section {
   font-size: 38px;
   line-height: 1;
 }
+@media (max-width: 767px) {
+  .content h2 {
+    font-size: 32px;
+    line-height: 1.20;
+}
+}
 .limited-lines {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -1356,7 +1427,11 @@ section {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
 }
-
+@media (max-width: 767px) {
+  .content p {
+    font-size: 15px;
+}
+}
 .button-talk {
   margin-top: 40px; 
   text-align: center;
@@ -1373,6 +1448,11 @@ section {
   letter-spacing: 2px;
   border-radius: 4px;
   text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .lets-button {
+  margin-right: 20px;
+}
 }
 .lets-button:hover {
   background: #4ea5e0;
@@ -1431,9 +1511,13 @@ section {
   #footer .footer-top {
     padding: 20px 80px 10px 0;
   }
+  @media (max-width: 767px) {
+    #footer .footer-top {
+      padding: 20px 0px 10px 0;
+    }
+  }
  .container {
     max-width: 100%;
-    padding-left: 30px;
 }
 }
 #footer .footer-top .footer-contact .footer-logo {
@@ -1601,7 +1685,7 @@ section {
 
 
 .contact-us {
-  background-image: url('/assets/img/about-us.jpg');
+  background-image: url('/assets/img/contact.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -1611,7 +1695,8 @@ section {
   padding-top: 68px;
   position: relative;
   background-position: center;
-  margin-top: 90px;
+  margin-top: 69px;
+  min-height: 450px;
 }
 
 .overlay {
@@ -1622,37 +1707,52 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: .6;
+  opacity: 0.6;
   background: linear-gradient(to right, black 0%, black 20%, transparent 100%);
 }
+
+@media (max-width: 768px) {
+  .contact-us {
+    background-size: auto 96%;
+    margin-top: -13px;
+  }
+}
+@media (max-width: 768px) {
+  .overlay {
+    height: 98%;
+  }
+}
+
+
 
 .contact-us-static {
   z-index: 9;
   text-align: left;
 }
-
 .home-text h1 {
   font-size: 58px;
   font-weight: 600;
   text-align: center;
   margin: 0;
   color: #FFFFFF;
-  line-height: 74.24px;
+  line-height: 46.24px;
 }
 
-@media (max-width: 1024px) {
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .home-text h1 {
+    font-size: 72px; 
+  }
+}
+
+
+@media (max-width: 768px) {
   .home-text h1 {
     font-size: 42px;
   }
 }
 
-@media (max-width: 991px) {
-  .home-text h1 {
-    font-size: 35px;
-    line-height: 50px;
-    text-align: left;
-  }
-}
+
 
 @keyframes fadeIn {
   0% {
@@ -1671,7 +1771,11 @@ section {
   margin-top: 120px;
   margin-bottom: 50px;
 }
-
+@media (max-width: 768px) {
+  .contact-gateway {
+    margin-top: 5px;
+  }
+}
 .contact-text {
   text-align: center;
   text-transform: uppercase;
@@ -1689,11 +1793,38 @@ section {
 
 .contact-h2 {
   font-weight: 600;
-  font-size: 36px;
+  font-size: 30px;
   font-family: "Raleway", sans-serif;
   margin: -17px;
   line-height: 97.08px;
 }
+@media (max-width: 991px) {
+  .contact-h2 {
+    width: 56%;
+    margin: 0 180px;
+    line-height: 47.08px;
+    text-align: center;
+    font-size: 32px;
+  }
+}
+@media (max-width: 768px) {
+  .contact-h2 {
+    width: 56%;
+    margin: 0 163px;
+    line-height: 47.08px;
+
+    
+  }
+}
+@media (max-width: 658px) {
+  .contact-h2 {
+    width: 96%;
+    margin: 0 auto;
+    line-height: 34.08px;
+    font-size: 25px;
+  }
+}
+
 .contact-success {
   padding: 0 1.6rem;
 }
@@ -1707,24 +1838,34 @@ section {
   margin-left: 103px;
   margin-right: 103px;
   line-height: 28px;
+  width: 50%;
+  margin: 0 auto;
+
+}
+
+
+@media (max-width: 991px) {
+  .contact-para  {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 658px) {
+  .contact-para  {
+    width: 96%;
+    margin: 0 auto;
+  }
 }
 
 .p {
   margin-bottom: 3rem;
   font-family: "Montserrat", sans-serif;
+  font-size: 21px;
 
 }
 
-@media (max-width: 768px) {
-  .contact-para {
-      margin-left: 0;
-      margin-right: 0;
-  }
-}
 
 .contact-box {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
   max-width: 100%;
   width: 1260px;
   margin-bottom: 50px;
@@ -1739,7 +1880,7 @@ section {
   list-style: none;
   justify-content: space-between; 
   margin-bottom: 1.25rem;
-  margin-right: 20px;
+  padding-left: 1px;
 }
 .contact-box h4 {
   color: rgb(68, 68, 68);
@@ -1802,6 +1943,7 @@ section {
   color: #000;
   font-size: 22px;
   margin-top: 17px;
+  word-break: break-all;
 }
 
 .contact-box ul li .call-img,
@@ -1838,8 +1980,7 @@ section {
     flex-basis: 100%;
     max-width: 100%;
     padding: 20px; 
-    margin-right: auto;
-    margin-left: auto;
+   
   }
 }
 
