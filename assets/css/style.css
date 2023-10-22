@@ -1409,7 +1409,6 @@ section {
 }
 .content h2{
   font-size: 38px;
-  line-height: 1;
 }
 @media (max-width: 767px) {
   .content h2 {
