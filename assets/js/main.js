@@ -200,7 +200,7 @@
   /*--
     magnificPopup video view 
   -----------------------------------*/	
-	$('.popup-video').magnificPopup({
+	$('.popup-video').magnificPopup({ 
 		type: 'iframe'
 	});
 
