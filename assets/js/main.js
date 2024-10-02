@@ -1,255 +1,367 @@
+    "use strict";
 
-(function() {
-  "use strict";
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
+    /*--
+        preloader
+    -----------------------------------*/
+     $(window).on('load', function(event) {
+        $('#preloader').delay(500).fadeOut(500);
+    });
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
-  }
+    /*--
+        Header Sticky
+    -----------------------------------*/
 
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+    window.onscroll = function () {
+        const left = document.getElementById("header");
 
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
+        if (left.scrollTop > 50 || self.pageYOffset > 50) {
+            left.classList.add("sticky")
+        } else {
+            left.classList.remove("sticky");
+        }
+    }    
+
+    
+    /*--
+        Menu parent Element Icon
+    -----------------------------------*/
+    const $subMenu = document.querySelectorAll('.sub-menu');
+    $subMenu.forEach(function (subMenu) {
+        const menuExpand = document.createElement('span')
+        menuExpand.classList.add('menu-icon')
+        // menuExpand.innerHTML = '+'
+        subMenu.parentElement.insertBefore(menuExpand, subMenu)
+        if (subMenu.classList.contains('mega-menu')) {
+            subMenu.classList.remove('mega-menu')
+            subMenu.querySelectorAll('ul').forEach(function (ul) {
+                ul.classList.add('sub-menu')
+                const menuExpand = document.createElement('span')
+                menuExpand.classList.add('menu-icon')
+                menuExpand.innerHTML = '+'
+                ul.parentElement.insertBefore(menuExpand, ul)
+            })
+        }
     })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
 
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let header = select('#header')
-    let offset = header.offsetHeight
+    /*--
+        Search Js
+    -----------------------------------*/
+	var $searchWrap = $('.search-wrap');
+	var $navSearch = $('.search-btn');
+	var $searchClose = $('#search-close');
 
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos - offset,
-      behavior: 'smooth'
-    })
-  }
+	$('.search-btn').on('click', function (e) {
+		e.preventDefault();
+		$searchWrap.animate({ opacity: 'toggle' }, 500);
+		$navSearch.add($searchClose).addClass("open");
+	});
 
-  /**
-   * Toggle .header-scrolled class to #header when page is scrolled
-   */
-  let selectHeader = select('#header')
-  if (selectHeader) {
-    const headerScrolled = () => {
-      if (window.scrollY > 100) {
-        selectHeader.classList.add('header-scrolled')
-      } else {
-        selectHeader.classList.remove('header-scrolled')
-      }
-    }
-    window.addEventListener('load', headerScrolled)
-    onscroll(document, headerScrolled)
-  }
+	$('.search-close').on('click', function (e) {
+		e.preventDefault();
+		$searchWrap.animate({ opacity: 'toggle' }, 500);
+		$navSearch.add($searchClose).removeClass("open");
+	});
 
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
+	function closeSearch() {
+		$searchWrap.fadeOut(200);
+		$navSearch.add($searchClose).removeClass("open");
+	}
 
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+	$(document.body).on('click', function (e) {
+		closeSearch();
+	});
 
-  /**
-   * Mobile nav dropdowns activate
-   */
-  on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
-    }
-  }, true)
+	$(".search-btn, .main-search-input").on('click', function (e) {
+		e.stopPropagation();
+	});
 
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
+        
+    /*--
+        Mobile Menu 
+    -----------------------------------*/
 
-      let navbar = select('#navbar')
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
-  });
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-      }, true);
+    /* Get Sibling */
+    const getSiblings = function (elem) {
+        const siblings = []
+        let sibling = elem.parentNode.firstChild
+        while (sibling) {
+            if (sibling.nodeType === 1 && sibling !== elem) {
+                siblings.push(sibling)
+            }
+            sibling = sibling.nextSibling
+        }
+        return siblings
     }
 
-  });
+    /* Slide Up */
+    const slideUp = (target, time) => {
+        const duration = time ? time : 500;
+        target.style.transitionProperty = 'height, margin, padding'
+        target.style.transitionDuration = duration + 'ms'
+        target.style.boxSizing = 'border-box'
+        target.style.height = target.offsetHeight + 'px'
+        target.offsetHeight
+        target.style.overflow = 'hidden'
+        target.style.height = 0
+        window.setTimeout(() => {
+            target.style.display = 'none'
+            target.style.removeProperty('height')
+            target.style.removeProperty('overflow')
+            target.style.removeProperty('transition-duration')
+            target.style.removeProperty('transition-property')
+        }, duration)
+    }
 
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+    /* Slide Down */
+    const slideDown = (target, time) => {
+        const duration = time ? time : 500;
+        target.style.removeProperty('display')
+        let display = window.getComputedStyle(target).display
+        if (display === 'none') display = 'block'
+        target.style.display = display
+        const height = target.offsetHeight
+        target.style.overflow = 'hidden'
+        target.style.height = 0
+        target.offsetHeight
+        target.style.boxSizing = 'border-box'
+        target.style.transitionProperty = 'height, margin, padding'
+        target.style.transitionDuration = duration + 'ms'
+        target.style.height = height + 'px'
+        window.setTimeout(() => {
+            target.style.removeProperty('height')
+            target.style.removeProperty('overflow')
+            target.style.removeProperty('transition-duration')
+            target.style.removeProperty('transition-property')
+        }, duration)
+    }
 
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
+    /* Slide Toggle */
+    const slideToggle = (target, time) => {
+        const duration = time ? time : 500;
+        if (window.getComputedStyle(target).display === 'none') {
+            return slideDown(target, duration)
+        } else {
+            return slideUp(target, duration)
+        }
+    }
+
+
+    /*--
+		Offcanvas/Collapseable Menu 
+	-----------------------------------*/
+    const offCanvasMenu = function (selector) {
+
+        const $offCanvasNav = document.querySelector(selector),
+            $subMenu = $offCanvasNav.querySelectorAll('.sub-menu');
+        $subMenu.forEach(function (subMenu) {
+            const menuExpand = document.createElement('span')
+            menuExpand.classList.add('menu-expand')
+            // menuExpand.innerHTML = '+'
+            subMenu.parentElement.insertBefore(menuExpand, subMenu)
+            if (subMenu.classList.contains('mega-menu')) {
+                subMenu.classList.remove('mega-menu')
+                subMenu.querySelectorAll('ul').forEach(function (ul) {
+                    ul.classList.add('sub-menu')
+                    const menuExpand = document.createElement('span')
+                    menuExpand.classList.add('menu-expand')
+                    menuExpand.innerHTML = '+'
+                    ul.parentElement.insertBefore(menuExpand, ul)
+                })
+            }
+        })
+
+        $offCanvasNav.querySelectorAll('.menu-expand').forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault()
+                const parent = this.parentElement
+                if (parent.classList.contains('active')) {
+                    parent.classList.remove('active');
+                    parent.querySelectorAll('.sub-menu').forEach(function (subMenu) {
+                        subMenu.parentElement.classList.remove('active');
+                        slideUp(subMenu)
+                    })
+                } else {
+                    parent.classList.add('active');
+                    slideDown(this.nextElementSibling)
+                    getSiblings(parent).forEach(function (item) {
+                        item.classList.remove('active')
+                        item.querySelectorAll('.sub-menu').forEach(function (subMenu) {
+                            subMenu.parentElement.classList.remove('active');
+                            slideUp(subMenu)
+                        })
+                    })
+                }
+            })
+        })
+    }
+    offCanvasMenu('.offcanvas-menu');
+
+  /*--
+    magnificPopup video view 
+  -----------------------------------*/	
+	$('.popup-video').magnificPopup({ 
+		type: 'iframe'
+	});
+
+  /*--    
+      Counter Up
+  -----------------------------------*/  
+
+    $('.counter').counterUp({
+        delay: 10,
+        time: 1500,
+    });
+
+  
+ 
+    /*--
+        Case Study Active
+	-----------------------------------*/
+  var swiper = new Swiper('.case-study-active', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    centeredSlides: true,
     loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+        el: ".case-study-active .swiper-pagination",
+        clickable: true,
     },
     breakpoints: {
-      320: {
+      0: {
         slidesPerView: 1,
-        spaceBetween: 20
       },
-
+      576: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 1,
+      },
+      992: {
+        slidesPerView: 2,
+      },
       1200: {
         slidesPerView: 3,
-        spaceBetween: 20
-      }
+      },
     }
   });
 
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
 
-})()
+  /*--
+        Testimonial Active
+	-----------------------------------*/
+    var swiper = new Swiper('.testimonial-active', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,        
+    });
+
+    /*--    
+        Testimonial Two Active
+    -----------------------------------*/
+    var swiper = new Swiper(".testimonial-02-active", {
+        slidesPerView: 2,
+        spaceBetween: 130,
+        loop: true,
+        pagination: {
+            el: ".testimonial-02-active .swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          576: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1,
+          },
+          992: {
+            slidesPerView: 1,
+          },
+          1400: {
+            slidesPerView: 2,
+          },
+        },
+    });
+  
+
+    /*--    
+        Brand Active
+    -----------------------------------*/
+    var swiper = new Swiper(".brand-active .swiper-container", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          992: {
+            slidesPerView: 3,
+          },
+        },
+    });
+
+    /*--    
+        Testimonial Two Active
+    -----------------------------------*/
+    var swiper = new Swiper(".team-active", {
+        slidesPerView: 4,
+        loop: true,
+        pagination: {
+            el: ".team-active .swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          576: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          992: {
+            slidesPerView: 4,
+          },
+        },
+    });
+
+
+
+    /*--    
+      Progress Bar
+  -----------------------------------*/  
+
+    if($('.progress-line').length) {
+        $('.progress-line').appear(function(){
+            var el = $(this);
+            var percent = el.data('width');
+            $(el).css('width', percent+'%');
+        }, {accY: 0});
+    }
+
+
+
+    /*--
+        AOS
+    -----------------------------------*/   
+    AOS.init({
+        duration: 1200,
+        once: true,
+    });
+
+
+
+
