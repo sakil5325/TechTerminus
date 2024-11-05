@@ -4674,11 +4674,11 @@ textarea:-ms-input-placeholder {
   color: #086ad8;
 }
 
-.case-study-active .swiper-pagination {
+.case-study-active .swiper-pagination, .brand-active .swiper-pagination {
   position: relative;
-  margin-top: 50px;
+  margin-top: 80px;
 }
-.case-study-active .swiper-pagination .swiper-pagination-bullet {
+.case-study-active .swiper-pagination .swiper-pagination-bullet, .brand-active .swiper-pagination .swiper-pagination-bullet {
   margin: 0 7px;
 }
 

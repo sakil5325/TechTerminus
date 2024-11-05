@@ -68,11 +68,11 @@
     }
 }
 
-.case-study-active {
+.case-study-active, .brand-active {
 
     & .swiper-pagination{
         position: relative;
-        margin-top: 50px;
+        margin-top: 80px;
         & .swiper-pagination-bullet {
             margin: 0 7px;
         }
