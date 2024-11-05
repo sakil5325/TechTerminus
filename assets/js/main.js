@@ -295,6 +295,10 @@
         slidesPerView: 3,
         spaceBetween: 30,
         loop: true,
+        pagination: {
+          el: ".brand-active .swiper-pagination",
+          clickable: true,
+      },
         breakpoints: {
           0: {
             slidesPerView: 1,
