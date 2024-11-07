@@ -5873,6 +5873,23 @@ textarea:-ms-input-placeholder {
   padding-bottom: 400px;
   z-index: 1;
 }
+.techwix-choose-us-section-02 .text {
+  font-size: 16px;
+  line-height: 30px;
+  padding-right: 65px;
+  text-align: center;
+  margin-top: 40px;
+}
+@media only screen and (min-width: 1200px) {
+  .techwix-choose-us-section-02 .text {
+    width: 60%;
+    margin: 40px auto;
+  }
+}
+.techwix-choose-us-section-02 .text a {
+  color: #0c63e4;
+  font-weight: 500;
+}
 .techwix-choose-us-section-02 .choose-us-left {
   padding-right: 50px;
 }
@@ -5943,6 +5960,7 @@ textarea:-ms-input-placeholder {
 }
 .techwix-choose-us-section-02 .choose-us-right .faq-accordion .accordion-item .accordion-button {
   padding: 25px 35px;
+  align-items: baseline;
 }
 .techwix-choose-us-section-02 .choose-us-right .faq-accordion .accordion-item .accordion-button .title {
   font-size: 22px;
@@ -5953,6 +5971,7 @@ textarea:-ms-input-placeholder {
   text-transform: capitalize;
   position: relative;
   z-index: 1;
+  padding-right: 10px;
 }
 .techwix-choose-us-section-02 .choose-us-right .faq-accordion .accordion-item .accordion-button::after {
   position: absolute;
@@ -5993,6 +6012,22 @@ textarea:-ms-input-placeholder {
   background: #e6eef8;
   color: #0e0e0e;
   transform: rotate(0);
+}
+.techwix-choose-us-section-02 .choose-us-right .faq-accordion .accordion-item .career-content p {
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 0;
+}
+.techwix-choose-us-section-02 .choose-us-right .faq-accordion .accordion-item .career-content h4 {
+  margin: 25px 0;
+}
+.techwix-choose-us-section-02 .choose-us-right .faq-accordion .accordion-item .career-content ul {
+  list-style-type: disc;
+  padding-left: 18px;
+}
+.techwix-choose-us-section-02 .choose-us-right .faq-accordion .accordion-item .career-content a {
+  color: #0c63e4;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 1199px) {
