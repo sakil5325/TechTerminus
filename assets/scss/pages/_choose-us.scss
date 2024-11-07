@@ -156,7 +156,21 @@
     background-position: center center;
     padding-bottom: 400px;
     z-index: 1;
-
+    .text {
+        font-size: 16px;
+        line-height: 30px;
+        padding-right: 65px;
+        text-align: center;
+        margin-top: 40px;
+        @media #{$min-desktop-device} {
+            width: 60%;
+            margin: 40px auto;
+        }
+        a {
+            color: #0c63e4;
+            font-weight: 500;
+        }
+    }
     & .choose-us-left {
         padding-right: 50px;
         & .text {
@@ -244,6 +258,7 @@
         
                 & .accordion-button {
                     padding: 25px 35px;
+                    align-items: baseline;
             
                     & .title {
                         font-size: 22px;
@@ -254,6 +269,7 @@
                         text-transform: capitalize;
                         position: relative;
                         z-index: 1;
+                        padding-right: 10px;
                     }
             
                     &::after {
@@ -299,6 +315,25 @@
                         background: #e6eef8;
                         color: $heading-color;
                         transform: rotate(0); 
+                    }
+                }
+
+                & .career-content {
+                    p {
+                        font-size: 16px;
+                        line-height: 30px;
+                        margin-top: 0;
+                    }
+                    h4 {
+                        margin: 25px 0;
+                    }
+                    ul {
+                        list-style-type: disc;
+                        padding-left: 18px;
+                    }
+                    a {
+                        color: #0c63e4;
+                        font-weight: 500;
                     }
                 }
             }
